@@ -27,8 +27,7 @@ app.use(cors());
   app.use('/national',require('./routes/national.route'))
   app.use('/member',require('./routes/member.route'))
 
-//test
-
+  
   app.all('*',(req,res,next)=>{
     
     next( new ApiError("can't find this path",404));

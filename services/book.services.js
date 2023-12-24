@@ -6,5 +6,5 @@ const myHandler=require('./handlers')
 module.exports.addbook=myHandler.addOne(bookModel)
 module.exports.updatebook=myHandler.updateOne(bookModel)
 module.exports.deletebook=myHandler.deleteOne(bookModel)
-
 module.exports.gellAllbooks=myHandler.getALL(bookModel)
+module.exports.deleteList=myHandler.deleteListbyId(bookModel)
