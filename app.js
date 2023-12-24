@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const { GlobelError } = require('./middleware/Globel.error.handler');
 const ApiError = require('./utils/api.error');
 require('express-async-errors');
-//hello world
+//anas here here
+
 const connectString ="mongodb+srv://anns2000:anas123@testanas.abjkarq.mongodb.net/SRGE"
 mongoose.set('strictQuery', false);
 mongoose.connect(connectString)
@@ -26,7 +27,7 @@ app.use(cors());
   app.use('/national',require('./routes/national.route'))
   app.use('/member',require('./routes/member.route'))
 
-
+//test
 
   app.all('*',(req,res,next)=>{
     
