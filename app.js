@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const { GlobelError } = require('./middleware/Globel.error.handler');
 const ApiError = require('./utils/api.error');
 require('express-async-errors');
-//hello
+//hello world
 const connectString ="mongodb+srv://anns2000:anas123@testanas.abjkarq.mongodb.net/SRGE"
 mongoose.set('strictQuery', false);
 mongoose.connect(connectString)
