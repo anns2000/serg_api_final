@@ -9,7 +9,7 @@ Route.post('/addPhoto',uploadSingleFile(),addTest)
 Route.delete('/delete',deleteMember)
 Route.put('/update',updateMember)
 Route.get('/getAll',getAllMembers)
-Route.patch('/deleteList',deleteList)
+Route.put('/deleteList',deleteList)
 
 
 

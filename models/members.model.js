@@ -1,4 +1,5 @@
 
+const { string } = require('joi')
 const mongoose=require('mongoose')
 
 const memberSchema=mongoose.Schema({
@@ -7,7 +8,7 @@ const memberSchema=mongoose.Schema({
     degree:String,
     affiliation: String,
     photo:String,
-    rank:Number
+    type:String
 
 
 })

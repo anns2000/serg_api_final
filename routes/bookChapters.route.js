@@ -9,7 +9,7 @@ Route.post('/add',addbookChapters)
 Route.put('/update',updatebookChapters)
 Route.delete('/delete',deletebookChapters)
 Route.get('/getAll',getAll)
-Route.patch('/deleteList',deleteList)
+Route.put('/deleteList',deleteList)
 
 
 module.exports=Route

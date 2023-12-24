@@ -12,7 +12,7 @@ Route.post('/add',addInternationalConf)
 Route.delete('/delete',deleteInternationalConf)
 Route.put('/update',updateInternationalConf)
 Route.get('/getAll',gellAllInternationalConf)
-Route.patch('/deleteList',deleteList)
+Route.put('/deleteList',deleteList)
 
 
 

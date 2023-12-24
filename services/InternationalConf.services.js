@@ -5,5 +5,4 @@ module.exports.updateInternationalConf=myHandler.updateOne(InternationalConfMode
 module.exports.deleteInternationalConf=myHandler.deleteOne(InternationalConfModel)
 module.exports.gellAllInternationalConf=myHandler.getALL(InternationalConfModel)
 module.exports.deleteList=myHandler.deleteListbyId(InternationalConfModel)
- // to get all InternationalConf belongs to an category
 

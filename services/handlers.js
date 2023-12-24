@@ -71,7 +71,9 @@ module.exports.deleteListbyId = (Model) => asyncHandler(async (req, res) => {
   const { list } = req.body;
   
   for (let i = 0; i < list.length; i++) {
+    
     await Model.findByIdAndDelete(list[i]); 
+  
   }
   res.json('done')
 }
