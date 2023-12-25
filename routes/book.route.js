@@ -1,3 +1,4 @@
+const { auth } = require('../middleware/auth')
 const { addbook, deletebook, updatebook, gellAllbooks, deleteList } = require('../services/book.services')
 const { uploadSingleFile } = require('../utils/fileUpload')
 const Route=require('express').Router()

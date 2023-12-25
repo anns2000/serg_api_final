@@ -1,4 +1,5 @@
 
+const { auth } = require('../middleware/auth')
 const { addevent, deleteevent, updateevent, getAllevents, deleteList } = require('../services/event.services')
 const Route=require('express').Router()
 
