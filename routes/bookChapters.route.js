@@ -1,5 +1,5 @@
 const { auth } = require('../middleware/auth')
-const { addbookChapters, updatebookChapters, deletebookChapters, getAll ,deleteList}
+const { addbookChapters, updatebookChapters, deletebookChapters, getAll ,deleteList, getOneById}
  = require('../services/bookChapters.services')
 const { uploadSingleFile } = require('../utils/fileUpload')
 
@@ -10,5 +10,6 @@ Route.put('/update', auth, updatebookChapters)
 Route.delete('/delete', auth, deletebookChapters)
 Route.get('/getAll', getAll)
 Route.put('/deleteList', auth, deleteList)
+Route.get('/getSingle', getOneById)
 
 module.exports=Route

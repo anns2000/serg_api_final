@@ -2,6 +2,23 @@ const asyncHandler = require('express-async-handler');
 const ApiError = require("../utils/api.error");
 const ApiFeatures = require("../utils/apiFeatures.JS");
 const multer = require("multer")
+const cloudinary = require('cloudinary');
+cloudinary.config({
+  cloud_name: "donwkw0ny",
+  api_key: "948569869913115",
+  api_secret: "YVQgJVnpcyBd0z2_OT_1RN2t7uI"
+});
+
+module.exports.getOneById = (Model) => asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const document = await Model.findById(id);
+  
+  if (!document) {
+    return next(new ApiError(`No document found for id ${id}`, 404));
+  }
+  
+  res.json(document);
+});
 
 module.exports.deleteOne = (Model) =>
   asyncHandler(async (req, res, next) => {
@@ -32,13 +49,6 @@ module.exports.updateOne = (Model) => asyncHandler(async (req, res) => {
   }
 
 })
-const cloudinary = require('cloudinary');
-cloudinary.config({
-  cloud_name: "donwkw0ny",
-  api_key: "948569869913115",
-  api_secret: "YVQgJVnpcyBd0z2_OT_1RN2t7uI"
-});
-
 
 module.exports.addOne = (Model) => asyncHandler(async (req, res, next) => {
 
@@ -63,9 +73,17 @@ module.exports.getALL = (Model) => asyncHandler(async (req, res) => {
     .sort()
     .fielding();
 
-  const myProdect = await api.myQuery
-  res.json(myProdect)
-})
+  const totalCount = await Model.countDocuments(api.query);
+
+  const myProdect = await api.myQuery;
+  console.log("hello");
+  res.json({
+    totalCount,
+    data: myProdect
+  });
+});
+
+
 
 module.exports.deleteListbyId = (Model) => asyncHandler(async (req, res) => {
   const { list } = req.body;

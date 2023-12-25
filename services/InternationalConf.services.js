@@ -6,3 +6,4 @@ module.exports.deleteInternationalConf=myHandler.deleteOne(InternationalConfMode
 module.exports.gellAllInternationalConf=myHandler.getALL(InternationalConfModel)
 module.exports.deleteList=myHandler.deleteListbyId(InternationalConfModel)
 
+module.exports.getOneById=myHandler.getALL(InternationalConfModel)
