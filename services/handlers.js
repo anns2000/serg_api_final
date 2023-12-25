@@ -7,19 +7,19 @@ module.exports.deleteOne = (Model) =>
   asyncHandler(async (req, res, next) => {
     const { id } = req.query;
     const document = await Model.findByIdAndDelete(id);
-
+    console.log(id);
+    console.log(document);
     if (!document) {
       return next(new ApiError(`No document for this id ${id}`, 404));
     }
     else {
-      next();
+      res.json('deleted')
 
     }
 
   });
 module.exports.updateOne = (Model) => asyncHandler(async (req, res) => {
   const id = req.header('id')
-  console.log(id);
   const doc = await Model.findById(id)
   if (doc) {
     await Model.findByIdAndUpdate(id, req.body, { new: true })

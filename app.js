@@ -26,6 +26,7 @@ app.use(cors());
   app.use('/book',require('./routes/book.route'))
   app.use('/national',require('./routes/national.route'))
   app.use('/member',require('./routes/member.route'))
+  app.use('/event',require('./routes/event.route'))
 
   
   app.all('*',(req,res,next)=>{
