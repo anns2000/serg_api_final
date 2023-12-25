@@ -1,16 +1,18 @@
+const { auth } = require('../middleware/auth')
 const { addMember, deleteMember, updateMember, getAllMembers, addTest, deleteList,  } = require('../services/member.services')
 const { uploadSingleFile } = require('../utils/fileUpload')
 
 const Route=require('express').Router()
 
-Route.post('/add',uploadSingleFile(),addMember,)
-Route.post('/addPhoto',uploadSingleFile(),addTest)
+Route.post('/add', auth, uploadSingleFile(), addMember)
+Route.post('/addPhoto', auth, uploadSingleFile(), addTest)
 
-Route.delete('/delete',deleteMember)
-Route.put('/update',updateMember)
-Route.get('/getAll',getAllMembers)
-Route.put('/deleteList',deleteList)
-
-
+Route.delete('/delete', auth, deleteMember)
+Route.put('/update', auth, updateMember)
+Route.get('/getAll', getAllMembers)
+Route.put('/deleteList', auth, deleteList)
 
 module.exports=Route
+
+
+

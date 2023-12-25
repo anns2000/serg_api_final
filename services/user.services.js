@@ -39,7 +39,8 @@ module.exports.sginin=asyncHandler(async(req,res)=>{
             if(result)
             {
                 var token = jwt.sign({ id:user._id,name:user.name,email:user.email,role:user.role }, 'anas');
-                res.json(token);
+                
+                res.json({"token":token});
             }
             else
             {

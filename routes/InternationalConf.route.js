@@ -8,13 +8,11 @@ deleteList,
 
 const Route=require('express').Router()
 
-Route.post('/add',addInternationalConf)
-Route.delete('/delete',deleteInternationalConf)
-Route.put('/update',updateInternationalConf)
-Route.get('/getAll',gellAllInternationalConf)
-Route.put('/deleteList',deleteList)
-
-
-
+Route.post('/add', auth, addInternationalConf)
+Route.delete('/delete', auth, deleteInternationalConf)
+Route.put('/update', auth, updateInternationalConf)
+Route.get('/getAll', gellAllInternationalConf)
+Route.put('/deleteList', auth, deleteList)
 
 module.exports=Route
+
