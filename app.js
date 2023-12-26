@@ -7,6 +7,7 @@ const { GlobelError } = require('./middleware/Globel.error.handler');
 const ApiError = require('./utils/api.error');
 require('express-async-errors');
 //anas here here
+app.use(GlobelError);
 
 const connectString ="mongodb+srv://anns2000:anas123@testanas.abjkarq.mongodb.net/SRGE"
 mongoose.set('strictQuery', false);
@@ -34,7 +35,6 @@ app.use(cors());
     next( new ApiError("can't find this path",404));
   })
   
-app.use(GlobelError);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 process.on('unhandledRejection',(err)=>{
