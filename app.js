@@ -32,7 +32,7 @@ app.use(cors());
   
   app.all('*',(req,res,next)=>{
     
-    next( new ApiError("can't find this path",404));
+    next( new ApiError("can'tt find this path",404));
   })
   
 
