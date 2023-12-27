@@ -2,6 +2,7 @@ const asyncHandler = require('express-async-handler');
 const ApiError = require("../utils/api.error");
 const ApiFeatures = require("../utils/apiFeatures.JS");
 const multer = require("multer")
+
 const cloudinary = require('cloudinary');
 cloudinary.config({
   cloud_name: "donwkw0ny",
@@ -11,6 +12,9 @@ cloudinary.config({
 
 module.exports.getOneById = (Model) => asyncHandler(async (req, res, next) => {
   const { id } = req.params;
+  const {iid}=req.body;
+  console.log(id);
+  console.log(iid);
   const document = await Model.findById(id);
   
   if (!document) {
@@ -50,21 +54,24 @@ module.exports.updateOne = (Model) => asyncHandler(async (req, res) => {
 
 })
 
-module.exports.addOne = (Model) => asyncHandler(async (req, res, next) => {
 
+
+module.exports.addOne = (Model) => asyncHandler(async (req, res, next) => {
+  
+  console.log(req.body);
 
   if (req.file) {
     await cloudinary.v2.uploader.upload(req.file.path, async (error, out) => {
-
       req.body.photo = out.secure_url;
-    })
+    });
   }
-  await Model.insertMany(req.body)
+  
+  await Model.insertMany(req.body);
 
-  res.json('document done')
+  res.json('document done');
+});
 
 
-})
 module.exports.getALL = (Model) => asyncHandler(async (req, res) => {
 
   const api = new ApiFeatures(Model.find(), req.query).filter()
