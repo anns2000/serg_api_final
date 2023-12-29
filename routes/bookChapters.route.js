@@ -5,11 +5,11 @@ const { uploadSingleFile } = require('../utils/fileUpload')
 
 const Route=require('express').Router()
 
-Route.post('/add', auth, addbookChapters)
-Route.put('/update', auth, updatebookChapters)
-Route.delete('/delete', auth, deletebookChapters)
-Route.get('/getAll', getAll)
-Route.put('/deleteList', auth, deleteList)
-Route.get('/getSingle', getOneById)
+Route.post('/add', auth, addbookChapters)  // ======>tested  // file upload problem ------
+Route.put('/update', auth, updatebookChapters)   // ======>tested
+Route.delete('/delete', auth, deletebookChapters)  // ======>tested
+Route.get('/getAll', getAll)  // ======>tested
+Route.put('/deleteList', auth, deleteList) // ======>tested
+Route.get('/getSingle', getOneById)  // ======>tested
 
 module.exports=Route

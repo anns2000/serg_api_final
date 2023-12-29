@@ -13,5 +13,5 @@ cloudinary.config({
     api_key: "948569869913115",
     api_secret: "YVQgJVnpcyBd0z2_OT_1RN2t7uI"
   });
-  module.exports.getOneById=myHandler.getALL(memberModel)
+  module.exports.getOneById=myHandler.getOneById(memberModel)
 

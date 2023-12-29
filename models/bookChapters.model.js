@@ -5,7 +5,7 @@ const  bookChaptersSchema=mongoose.Schema({
 
     name:String,
     allChapters: [{
-         des:String,
+        des:String,
         getChapter:String
     }],
     photo:String,

@@ -24,6 +24,7 @@ module.exports.sginup=asyncHandler(async(req,res)=>{
         });  
     }
 })
+
 module.exports.sginin=asyncHandler(async(req,res)=>{
     const {email,password}=req.body
     const user=await userModel.findOne({email})
@@ -50,6 +51,7 @@ module.exports.sginin=asyncHandler(async(req,res)=>{
         });                
     }
 })
+
 module.exports.deleteUser=asyncHandler(async(req,res)=>{
     const {email}=req.body
 
@@ -63,6 +65,6 @@ module.exports.deleteUser=asyncHandler(async(req,res)=>{
           
     }
 })
-module.exports.updateUser=myHandler.updateOne(userModel)
+module.exports.updateUser=myHandler.updateOneuser(userModel)
 
 
