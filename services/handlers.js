@@ -100,7 +100,7 @@ module.exports.getALL = (Model) => asyncHandler(async (req, res) => {
 
 
 module.exports.getOneById = (Model) => asyncHandler(async (req, res, next) => {
-  const { id } = req.body;
+  const { id } = req.query;
   // const {iid}=req.body;
   console.log(id);
   // console.log(iid);
