@@ -11,6 +11,9 @@ cloudinary.config({
   api_secret: "YVQgJVnpcyBd0z2_OT_1RN2t7uI"
 });
 
+// Configure Multer for file upload
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 // -------------------------------- update ---------------------------------------
 
 module.exports.updateOneuser = (Model) => asyncHandler(async (req, res) => {
@@ -61,11 +64,12 @@ module.exports.updateOne = (Model) => asyncHandler(async (req, res) => {
 module.exports.addOne = (Model) => asyncHandler(async (req, res, next) => {
   
   console.log(req.body);
+  console.log(req.file);
 
-  // if(!req.file){
-  //   console.log("file is,t exist!")
-  //   res.json("file isn,t exist!") 
-  // }
+  if(!req.file){
+    console.log("file is,t exist!")
+    res.json("file isn,t exist!") 
+  }
 
   if (req.file) {
     await cloudinary.v2.uploader.upload(req.file.path, async (error, out) => {
@@ -78,6 +82,30 @@ module.exports.addOne = (Model) => asyncHandler(async (req, res, next) => {
   res.json('document done');
 });
 
+// module.exports.addOneMemper = (Model) => asyncHandler(async (req, res, next) => {
+//   console.log(req.body)
+//   console.log(req.file)
+//   try {
+//       const { name, degree, affiliation, type } = req.body;
+
+//       // Upload image to Cloudinary
+//       // const result = await cloudinary.uploader.upload(req.file, { folder: 'users_test' });
+
+//       const result = await cloudinary.v2.uploader.upload(req.file.path,
+//       { public_id: req.file.filename});
+//       const member = new membersModel()
+
+//       await Model.insertMany(req.body);
+
+//       res.json('Document added successfully');
+//   } catch (error) {
+//       console.error(error);
+//       res.status(500).json('Internal Server Error');
+//   }
+  
+//   module.exports.uploadSingleFile = upload.single('photo');
+// });
+    
 // -------------------------------- get ---------------------------------------
 
 module.exports.getALL = (Model) => asyncHandler(async (req, res) => {

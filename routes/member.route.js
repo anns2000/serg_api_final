@@ -4,7 +4,8 @@ const { uploadSingleFile } = require('../utils/fileUpload')
 
 const Route=require('express').Router()
 
-Route.post('/add', auth, uploadSingleFile(), addMember) //tested
+// Route.post('/add', auth, uploadSingleFile(), addMember) //tested
+Route.post('/add', auth, addMember) //tested
 Route.delete('/delete', auth, deleteMember) //tested
 Route.put('/update', auth, updateMember) //tested
 Route.get('/getAll', getAllMembers) //tested
