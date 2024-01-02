@@ -35,6 +35,7 @@ app.use(cors());
   app.use('/jorn',uploadSingleFile(),require('./routes/jorn.route')) //tested
   app.use('/InternationalConf',uploadSingleFile(),require('./routes/InternationalConf.route')) //test
   app.use('/book',uploadSingleFile(),require('./routes/book.route')) //tested
+  app.use('/socialActivities',uploadSingleFile(),require('./routes/socialActivities.route')) //tested
   app.use('/national',uploadSingleFile(),require('./routes/national.route'))  //tested
   app.use('/member',uploadSingleFile(),require('./routes/member.route')) //tested
   app.use('/event',uploadSingleFile(),require('./routes/event.route'))   //tested
