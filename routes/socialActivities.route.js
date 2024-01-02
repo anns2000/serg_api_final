@@ -3,6 +3,7 @@ const { addActivities, deleteActivities, updateActivities, gellAllActivitiess, d
 const { uploadSingleFile } = require('../utils/fileUpload')
 const Route=require('express').Router()
 
+
 Route.post('/add', auth,addActivities) // ======>tested  // file upload problem ------
 Route.delete('/delete', auth, deleteActivities) // ======>tested
 Route.put('/update', auth, updateActivities)  // ======>tested
