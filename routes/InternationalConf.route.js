@@ -9,13 +9,12 @@ getOneById,
 
 const Route=require('express').Router()
 
-Route.post('/add', auth, addInternationalConf)
-
-Route.delete('/delete', auth, deleteInternationalConf)
-Route.put('/update', auth, updateInternationalConf)
-Route.get('/getAll', gellAllInternationalConf)
-Route.put('/deleteList', auth, deleteList)
-Route.get('/getSingle', getOneById)
+Route.post('/add', auth, addInternationalConf)  //test 
+Route.delete('/delete', auth, deleteInternationalConf) //test
+Route.put('/update', auth, updateInternationalConf) //test
+Route.get('/getAll', gellAllInternationalConf) //test 
+Route.put('/deleteList', auth, deleteList)  //test
+Route.get('/getSingle', getOneById) //test 
 
 module.exports=Route
 
