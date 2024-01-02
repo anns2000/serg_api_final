@@ -48,6 +48,19 @@ module.exports.updateOne = (Model) => asyncHandler(async (req, res) => {
   const doc = await Model.findById(id)
 
   if (doc) {
+    if(!req.file){
+      console.log("file is,t exist!")
+      res.json("file isn,t exist!") 
+    }
+  
+    if (req.file) {
+      console.log(req.body);
+      console.log(req.file);
+      await cloudinary.v2.uploader.upload(req.file.path, async (error, out) => {
+        req.body.photo = out.secure_url;
+      });
+    }
+
     await Model.findByIdAndUpdate(id, req.body, { new: true })
     res.json('done')
 
