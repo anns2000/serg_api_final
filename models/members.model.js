@@ -8,7 +8,9 @@ const memberSchema=mongoose.Schema({
     degree:String,
     affiliation: String,
     photo:String,
-    type:String
+    type:String,
+    email:String,
+    researchInterest:String
 
 
 })
