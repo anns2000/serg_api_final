@@ -45,6 +45,8 @@ The API provides the following endpoints:
 - `/jorn`: This endpoint allows you to create, read, update, and delete journals.
 - `/InternationalConf`: This endpoint allows you to create, read, update, and delete international conferences.
 - `/book`: This endpoint allows you to create, read, update, and delete books.
+- `/news`: This endpoint allows you to create, read, update, and delete news.
+- `/socialactivities`: This endpoint allows you to create, read, update, and delete socialactivities.
 - `/national`: This endpoint allows you to create, read, update, and delete national conferences.
 - `/member`: This endpoint allows you to create, read, update, and delete members.
 - `/event`: This endpoint allows you to create, read, update, and delete events.
