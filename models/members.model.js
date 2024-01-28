@@ -10,7 +10,8 @@ const memberSchema=mongoose.Schema({
     photo:String,
     type:String,
     email:String,
-    researchInterest:String
+    researchInterest:String,
+    description:String
 
 
 })
