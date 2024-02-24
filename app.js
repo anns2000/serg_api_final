@@ -26,7 +26,7 @@ mongoose.connect(connectString)
   .then(() => console.log('Connected!'));
 
 var cors = require('cors');
-const { uploadSingleFile } = require('./utils/fileUpload');
+const { uploadSingleFile ,uploadSinglepdfFile,uploadFiles } = require('./utils/fileUpload');
 
 app.use(cors());
 
