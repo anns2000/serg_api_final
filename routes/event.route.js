@@ -1,5 +1,7 @@
 
 const { auth } = require('../middleware/auth')
+const { uploadSingleFile ,uploadSinglepdfFile,uploadFiles } = require('../utils/fileUpload');
+
 const { addevent, deleteevent, updateevent, getAllevents, deleteList, getOneById } = require('../services/event.services')
 const Route=require('express').Router()
 

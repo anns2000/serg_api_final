@@ -11,9 +11,6 @@ cloudinary.config({
   api_secret: "YVQgJVnpcyBd0z2_OT_1RN2t7uI"
 });
 
-// Configure Multer for file upload
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
 // -------------------------------- update ---------------------------------------
 
 module.exports.updateOneuser = (Model) => asyncHandler(async (req, res) => {
@@ -77,24 +74,39 @@ module.exports.updateOne = (Model) => asyncHandler(async (req, res) => {
 
 // -------------------------------- add ---------------------------------------
 
+// Set up multer for file upload
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        // Specify the directory where you want to store the files
+        cb(null, 'D:/node projects/serg_api_final/upload/pdf');
+    },
+    filename: function (req, file, cb) {
+        // Use the original filename for the uploaded file
+        cb(null, file.originalname);
+    }
+});
+
+// Create the multer middleware with the specified storage
+const upload = multer({ storage: storage });
+
 module.exports.addOne = (Model) => asyncHandler(async (req, res, next) => {
-  
-  console.log(req.body);
-  console.log(req.file);
+    if (!req.file) {
+        console.log("File doesn't exist!");
+        // Handle the case when file is missing
+        return res.status(400).json({ error: "File doesn't exist!" });
+    }
 
-  if(!req.file){
-    console.log("file is,t exist!")
-    res.json("file isn,t exist!") 
-  }
+    if (req.file && req.file.fieldname == 'pdfFile') {
+        console.log(req.body);
+        upload.single("pdfFile")
+    }else if (req.file && req.file.fieldname == 'photo'){
+      console.log(req.body);
+      await cloudinary.v2.uploader.upload(req.file.path, async (error, out) => {
+        req.body.photo = out.secure_url;
+      });
+    }
 
-  if (req.file) {
-    await cloudinary.v2.uploader.upload(req.file.path, async (error, out) => {
-      req.body.photo = out.secure_url;
-    });
-  }
-  
-  await Model.insertMany(req.body);
-
+  await Model.insertMany(req.body); 
   res.json('document done');
 });
 
