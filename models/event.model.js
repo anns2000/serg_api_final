@@ -19,7 +19,7 @@ const eventSchema = new mongoose.Schema({
     photo: {
         type: String,
     },
-    pdfFile: {
+    pdf: {
         type: String,
     }
 });
