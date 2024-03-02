@@ -96,9 +96,9 @@ module.exports.addOne = (Model) => asyncHandler(async (req, res, next) => {
         return res.status(400).json({ error: "File doesn't exist!" });
     }
 
-    if (req.file && req.file.fieldname == 'pdfFile') {
+    if (req.file && req.file.fieldname == 'pdf') {
         console.log(req.body);
-        upload.single("pdfFile")
+        upload.single("pdf")
     }else if (req.file && req.file.fieldname == 'photo'){
       console.log(req.body);
       await cloudinary.v2.uploader.upload(req.file.path, async (error, out) => {
